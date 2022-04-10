@@ -3,7 +3,6 @@
 import argparse
 import requests
 
-
 p=argparse.ArgumentParser(description='vulnerability check')
 p.add_argument('-v','--version',action='version',version='v1.0',help='version of tool')
 p.add_argument('url',type=str,help='enter your url with scheme')
@@ -11,8 +10,12 @@ args=p.parse_args()
 
 url=args.url
 
+try :
+    response = requests.get(url)
+except:
+    print("Use correct URL scheme")
+    exit(1)
 
-response = requests.get(url)
 
 if(response.status_code==200):
     response= requests.get(url+ '/wp-admin')
