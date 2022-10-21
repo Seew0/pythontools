@@ -10,6 +10,9 @@ args=p.parse_args()
 
 url=args.url
 
+if url.startswith("www"):
+    url = "https://" + url;
+
 try :
     response = requests.get(url)
 except:
@@ -17,7 +20,7 @@ except:
     exit(1)
 
 
-if(response.status_code==200):
+if(response.status_code == 200):
     response= requests.get(url+ '/wp-admin')
     
     if(response.status_code==404):

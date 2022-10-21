@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 
-
-
 import argparse
 import bcrypt
-
-
 
 parser = argparse.ArgumentParser(description='Password Encryption Tool v1.0')
 
