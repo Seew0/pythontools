@@ -13,6 +13,9 @@ args=parser.parse_args()
 
 url=args.url
 
+if url.startswith("www"):
+    url = "https://" + url;
+
 Response = requests.get(url)
 soup=bs(Response.content,'html.parser')
 if(Response.status_code==200):
